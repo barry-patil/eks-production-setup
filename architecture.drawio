@@ -1,0 +1,109 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="EKS Production Setup">
+    <mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/><mxCell id="1" parent="0"/>
+
+        <!-- AWS Cloud boundary -->
+        <mxCell id="2" value="AWS Cloud" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud;strokeColor=#AAB7B8;fillColor=#F8F8F8;verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1300" height="780" as="geometry"/>
+        </mxCell>
+
+        <!-- VPC -->
+        <mxCell id="3" value="VPC  10.0.0.0/16" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;strokeColor=#8C4FFF;fillColor=none;verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="1220" height="680" as="geometry"/>
+        </mxCell>
+
+        <!-- Private Subnet AZ-1 -->
+        <mxCell id="4" value="Private Subnet — AZ-1  10.0.1.0/24" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_private_subnet;strokeColor=#147EBA;fillColor=rgba(20,126,186,0.05);verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="110" y="160" width="540" height="480" as="geometry"/>
+        </mxCell>
+
+        <!-- Private Subnet AZ-2 -->
+        <mxCell id="5" value="Private Subnet — AZ-2  10.0.2.0/24" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_private_subnet;strokeColor=#147EBA;fillColor=rgba(20,126,186,0.05);verticalLabelPosition=top;verticalAlign=bottom;align=center;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="690" y="160" width="580" height="480" as="geometry"/>
+        </mxCell>
+
+        <!-- EKS Control Plane -->
+        <mxCell id="10" value="EKS Control Plane" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=11;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eks;" vertex="1" parent="1">
+          <mxGeometry x="570" y="100" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="EKS Control Plane" style="text;html=1;align=center;verticalAlign=top;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="540" y="165" width="120" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- System Node Group -->
+        <mxCell id="20" value="System Node Group&#xa;t3.medium × 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="220" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- App Node Group -->
+        <mxCell id="21" value="App Node Group&#xa;t3.large × 3 (autoscaling 1–6)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="320" width="240" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- CoreDNS -->
+        <mxCell id="22" value="CoreDNS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="140" y="430" width="100" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- kube-proxy -->
+        <mxCell id="23" value="kube-proxy" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="260" y="430" width="100" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Cluster Autoscaler -->
+        <mxCell id="24" value="Cluster Autoscaler" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="390" y="430" width="140" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- IRSA -->
+        <mxCell id="25" value="IRSA&#xa;(IAM Roles for Service Accounts)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="520" width="220" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- ALB Ingress Controller -->
+        <mxCell id="30" value="ALB Ingress Controller" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="720" y="220" width="180" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- AWS Load Balancer -->
+        <mxCell id="31" value="Application Load Balancer" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.application_load_balancer;" vertex="1" parent="1">
+          <mxGeometry x="935" y="215" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="32" value="ALB" style="text;html=1;align=center;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="920" y="265" width="80" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- ECR -->
+        <mxCell id="33" value="ECR" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#ED7100;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;fontStyle=1;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ecr;" vertex="1" parent="1">
+          <mxGeometry x="720" y="320" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="34" value="ECR&#xa;(Container Registry)" style="text;html=1;align=center;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="700" y="370" width="120" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- CloudWatch -->
+        <mxCell id="35" value="CloudWatch&#xa;Container Insights" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;labelBackgroundColor=#ffffff;align=center;html=1;fontSize=10;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch;" vertex="1" parent="1">
+          <mxGeometry x="860" y="320" width="48" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="36" value="CloudWatch" style="text;html=1;align=center;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="840" y="370" width="100" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Terraform -->
+        <mxCell id="40" value="Terraform&#xa;(IaC — provisions all resources)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="520" width="240" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges -->
+        <mxCell id="50" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;strokeWidth=1.5;" edge="1" source="10" target="20" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="51" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;strokeWidth=1.5;" edge="1" source="10" target="21" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="52" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#6c8ebf;strokeWidth=1.5;" edge="1" source="10" target="30" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="53" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#555555;strokeWidth=1.5;" edge="1" source="30" target="31" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="54" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#82b366;strokeWidth=1.5;dashed=1;" edge="1" source="24" target="21" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="55" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#9673a6;strokeWidth=1.5;dashed=1;" edge="1" source="40" target="10" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
