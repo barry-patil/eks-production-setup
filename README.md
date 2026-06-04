@@ -70,3 +70,9 @@ The autoscaler uses `least-waste` expander — it picks the node group that wast
 Service accounts that need AWS access (external-dns, aws-load-balancer-controller, EBS CSI driver) use IRSA rather than instance profiles. This gives per-pod IAM scoping instead of granting every pod on a node the same permissions.
 
 The IAM module handles OIDC provider setup and the trust policy for each service account.
+
+---
+
+## Architecture
+
+The full architecture diagram is in [architecture.drawio](./architecture.drawio). Open it at [app.diagrams.net](https://app.diagrams.net) — File → Open from Device → select the file.
